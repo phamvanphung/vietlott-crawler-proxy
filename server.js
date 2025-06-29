@@ -1,8 +1,10 @@
 const express = require('express');
 const fetch = require('node-fetch'); // Nếu Node 18- dùng `global.fetch`
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+app.use(cors()); // ✅ Cho phép tất cả origin truy cập
 
 app.get('/vietlott', async (req, res) => {
   const { id } = req.query;
